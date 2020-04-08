@@ -17,16 +17,3 @@ VALUES
         'My Title', 'Lorem, ipsum dolor sit amet consectetur adipisicing', 'Lorem, ipsum dolor sit amet', 'Lorem ipsum dolor sit.', 'Lorem ipsum dolor sit.',
         'Lorem ipsum dolor sit.', 'Lorem ipsum dolor sit.', curdate(), curdate(), 2)
 ;
-
-
-INSERT INTO users
-    (name)
-VALUES('Alexia Chalita');
-
-INSERT INTO users
-    (name)
-VALUES('Matthew Bell');
-
-INSERT INTO users
-    (name)
-VALUES('Daniel Angulo');
