@@ -1,72 +1,150 @@
+:root {
+  --modal-duration: 1s;
+  --primary-color: #30336b;
+  --secondary-color: #be2edd;
+}
+
+/* * {
+  box-sizing: border-box;
+} */
+
 body {
-    color: black;
+  color: black;
+  transition: transform 0.3s ease;
 }
 
 header {
-    text-align: center;
-    padding-top: 2%;
+  text-align: center;
+  padding-top: 2%;
 }
 
 .content {
-    text-align: center;
+  text-align: center;
+}
+
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal-container.show-modal {
+  display: block;
+}
+
+.modals {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  /* width: 400px; */
+  animation: modalopen;
+  animation-duration: var(--modal-duration);
+}
+
+.modal-header {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 15px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  border-bottom: 1px solid #333;
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+.modal-form div {
+  margin: 15px 0;
+}
+
+.modal-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.modal-form .form-input {
+  padding: 8px;
+  width: 100%;
+}
+
+.close-btn {
+  background: transparent;
+  font-size: 25px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 #card1 {
-    text-align: left;
-    margin-left: 2%;
+  text-align: left;
+  margin-left: 2%;
 }
 
 #card2 {
-    text-align: left;
+  text-align: left;
 }
 
 #card3 {
-    text-align: left;
+  text-align: left;
 }
 
 #card4 {
-    text-align: left;
-    margin-right: 2%;
+  text-align: left;
+  margin-right: 2%;
 }
 
 .title {
-    font-family: sans-serif;
+  font-family: sans-serif;
 }
 .subtitle {
-    font-family: sans-serif;
+  font-family: sans-serif;
 }
-.search{
-    font-family: sans-serif;
-    
-    
+.search {
+  font-family: sans-serif;
 }
 #cicon {
-    padding-top: 10%;
-    padding-left: 9%;
-    
+  padding-top: 10%;
+  padding-left: 9%;
 }
 
 #script1 {
-    text-align: left;
-    margin-left: 2%;
-    margin-right: 2%;
-
+  text-align: left;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 footer {
-height: 10%;
+  height: 10%;
 }
 
 .footer {
-padding: 0;
-padding-top: 10px;
-
+  padding: 0;
+  padding-top: 10px;
 }
 
 .buttonsmainpage {
-
- margin-left: 31%;
-
+  margin-left: 31%;
 }
 
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
 
+  to {
+    opacity: 1;
+  }
+}
