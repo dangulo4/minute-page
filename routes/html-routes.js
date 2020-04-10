@@ -29,7 +29,7 @@ var path = require("path");
 
   // processing route loads processing.html
   app.get("/processing", function(req, res) {
-    res.sendFile(path.join(__dirname, "../questions/processing.html"));
+    res.sendFile(path.join(__dirname, "../processing.html"));
   });
 
   // output route loads output.html
