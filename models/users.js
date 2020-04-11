@@ -1,8 +1,6 @@
 const bcrypt = require('bcryptjs');
 
-
-
- // Creating User model
+// Creating User model
 module.exports = function (sequelize, DataTypes) {
   var User = sequelize.define('User', {
     // Giving the User model a name of type STRING
@@ -47,6 +45,4 @@ module.exports = function (sequelize, DataTypes) {
   // User.sync();
 
   return User;
-
-
 };
