@@ -3,12 +3,9 @@ var db = require("../models");
 // -----USER API ROUTES-----
 module.exports = function(app) {
     // DISPLAY ALL USERS
-    app.get("/api/Users", function(req, res) {
-      // Here we add an "include" property to our options in our findAll query
-      // We set the value to an array of the models we want to include in a left outer join
-      // In this case, just db.Post
+    app.get("/api/users", function(req, res) {
       db.User.findAll({
-        include: [db.Post]
+        include: [db.User]
       }).then(function(dbUser) {
         res.json(dbUser);
       });
@@ -16,14 +13,11 @@ module.exports = function(app) {
 
     // DISPLAY SPECIFIC USER
     app.get("/api/users/:id", function(req, res) {
-        // Here we add an "include" property to our options in our findOne query
-        // We set the value to an array of the models we want to include in a left outer join
-        // In this case, just db.Post
         db.User.findOne({
           where: {
             id: req.params.id
           },
-          include: [db.Post]
+          include: [db.User]
         }).then(function(dbUser) {
           res.json(dbUser);
         });
@@ -47,12 +41,12 @@ module.exports = function(app) {
         });
     });
 
-    // DELETE ALL USERS
-    app.delete("/api/Users", function(req, res) {
-        db.User.findAll({
-          include: [db.Post]
-        }).then(function(dbUser) {
-          res.json(dbUser);
-        });
-    });
+    // // DELETE ALL USERS
+    // app.delete("/api/Users", function(req, res) {
+    //     db.User.destroy({
+    //       include: [db.User]
+    //     }).then(function(dbUser) {
+    //       res.json(dbUser);
+    //     });
+    // });
 };
