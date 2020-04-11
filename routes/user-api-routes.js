@@ -5,7 +5,7 @@ module.exports = function(app) {
     // DISPLAY ALL USERS
     app.get("/api/users", function(req, res) {
       db.User.findAll({
-        include: [db.Page]
+        include: [db.User]
       }).then(function(dbUser) {
         res.json(dbUser);
       });
@@ -17,7 +17,7 @@ module.exports = function(app) {
           where: {
             id: req.params.id
           },
-          include: [db.Page]
+          include: [db.User]
         }).then(function(dbUser) {
           res.json(dbUser);
         });
