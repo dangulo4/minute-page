@@ -1,12 +1,8 @@
 :root {
   --modal-duration: 1s;
-  --primary-color: #30336b;
+  --primary-color: #363636;
   --secondary-color: #be2edd;
 }
-
-/* * {
-  box-sizing: border-box;
-} */
 
 body {
   color: black;
