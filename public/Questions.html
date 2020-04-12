@@ -10,7 +10,7 @@
         integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -33,7 +33,7 @@
                             </div>
                             <div id="navbarMenuHeroB" class="navbar-menu">
                                 <div class="navbar-end">
-                                    <a class="navbar-item is-active">
+                                    <a class="navbar-item is-active" href="/">
                                         Home
                                     </a>
                                     <a class="navbar-item">
@@ -43,7 +43,7 @@
                                         Pricing
                                     </a>
                                     <span class="navbar-item">
-                                        <a class="button is-info is-inverted">
+                                        <a class="button is-info is-inverted" href="/api/users">
 
                                             <span>View Leads</span>
                                         </a>
@@ -77,10 +77,10 @@
                                                 </div>
                                                 <div class="field-body">
                                                     <div class="field is-narrow">
-                                                        <div class="control">
-                                                            <label class="radio">
-                                                                <input type="radio" name="member">
-                                                                Modern
+                                                        <div class="control" >
+                                                            <label class="radio" >
+                                                                <input type="radio" name="modern">
+                                                               <span id="style">Modern</span>
                                                             </label>
                                                             <label class="radio">
                                                                 <input type="radio" name="member">
@@ -134,7 +134,7 @@
                                                     <div class="field-body">
                                                       <div class="field">
                                                             <div class="control">
-                                                                    <input class="input" type="text" placeholder="'The Waffle Factory'">
+                                                                    <input class="input" id="company-name" type="text" placeholder="'The Waffle Factory'">
                                                                   </div>
                                                       </div>
                                                     </div>
@@ -148,7 +148,7 @@
                                                         <div class="field-body">
                                                           <div class="field">
                                                                 <div class="control">
-                                                                        <input class="input" type="text" placeholder="'The Best Waffles in Town!'">
+                                                                        <input class="input" id="header" type="text" placeholder="'The Best Waffles in Town!'">
                                                                       </div>
                                                           </div>
                                                         </div>
@@ -161,7 +161,7 @@
                                                             <div class="field-body">
                                                               <div class="field">
                                                                     <div class="control">
-                                                                            <input class="input" type="text" placeholder="'We have chocolate waffles. We have vanilla waffles. Order online by clicking below!'">
+                                                                            <input class="input" id="desc" type="text" placeholder="'We have chocolate waffles. We have vanilla waffles. Order online by clicking below!'">
                                                                           </div>
                                                               </div>
                                                             </div>
@@ -174,7 +174,7 @@
                                                                 <div class="field-body">
                                                                   <div class="field">
                                                                         <div class="control">
-                                                                                <input class="input" type="text" placeholder="'The Best Waffles in Town!'">
+                                                                                <input class="input" id="first-point" type="text" placeholder="'The Best Waffles in Town!'">
                                                                               </div>
                                                                   </div>
                                                                 </div>
@@ -187,7 +187,7 @@
                                                                     <div class="field-body">
                                                                       <div class="field">
                                                                             <div class="control">
-                                                                                    <input class="input" type="text" placeholder="'The Best Waffles in Town!'">
+                                                                                    <input class="input" id="second-point" type="text" placeholder="'The Best Waffles in Town!'">
                                                                                   </div>
                                                                       </div>
                                                                     </div>
@@ -200,7 +200,7 @@
                                                                         <div class="field-body">
                                                                           <div class="field">
                                                                                 <div class="control">
-                                                                                        <input class="input" type="text" placeholder="'The Best Waffles in Town!'">
+                                                                                        <input class="input" id="third-point" type="text" placeholder="'The Best Waffles in Town!'">
                                                                                       </div>
                                                                           </div>
                                                                         </div>
@@ -213,7 +213,7 @@
                                                                             <div class="field-body">
                                                                               <div class="field">
                                                                                     <div class="control">
-                                                                                            <input class="input" type="text" placeholder="'The Best Waffles in Town!'">
+                                                                                            <input class="input" id="fourth-point" type="text" placeholder="'The Best Waffles in Town!'">
                                                                                           </div>
                                                                               </div>
                                                                             </div>
@@ -226,7 +226,7 @@
                                                                                 <div class="field-body">
                                                                                   <div class="field">
                                                                                         <div class="control">
-                                                                                                <input class="input" type="text" placeholder="'The Best Waffles in Town!'">
+                                                                                                <input class="input" id="title" type="text" placeholder="'The Best Waffles in Town!'">
                                                                                               </div>
                                                                                   </div>
                                                                                 </div>
@@ -239,7 +239,7 @@
                                                                                     <div class="field-body">
                                                                                       <div class="field">
                                                                                             <div class="control">
-                                                                                                    <input class="input" type="text" placeholder="'The Best Waffles in Town!'">
+                                                                                                    <input class="input" id="form-desc" type="text" placeholder="'The Best Waffles in Town!'">
                                                                                                   </div>
                                                                                       </div>
                                                                                     </div>
@@ -252,7 +252,7 @@
                                                                                         <div class="field-body">
                                                                                           <div class="field">
                                                                                                 <div class="control">
-                                                                                                        <input class="input" type="text" placeholder="'The Best Waffles in Town!' -Customer">
+                                                                                                        <input class="input" type="text" id="quote" placeholder="'The Best Waffles in Town!' -Customer">
                                                                                                       </div>
                                                                                           </div>
                                                                                         </div>
@@ -263,7 +263,7 @@
                                                                                           <label class="label">13. Upload an image asset:</label>
                                                                                         </div>
                                                                                         <label class="file-label">
-                                                                                                <input class="file-input" type="file" name="resume">
+                                                                                                <input class="file-input" id="image" type="file" name="resume">
                                                                                                 <span class="file-cta">
                                                                                                   <span class="file-icon">
                                                                                                     <i class="fas fa-upload"></i>
@@ -280,7 +280,7 @@
                                                                                               <label class="label">14. Upload a logo:</label>
                                                                                             </div>
                                                                                             <label class="file-label">
-                                                                                                    <input class="file-input" type="file" name="resume">
+                                                                                                    <input class="file-input" id="file" type="file" name="resume">
                                                                                                     <span class="file-cta">
                                                                                                       <span class="file-icon">
                                                                                                         <i class="fas fa-upload"></i>
@@ -313,7 +313,7 @@
                                                         
                                                 <div class="field is-grouped">
                                                     <div class="control">
-                                                        <button class="button is-link">Submit</button>
+                                                        <button class="button is-link" id="get-started-btn">Submit</button>
                                                     </div>
                                                     <div class="control">
                                                         <button class="button is-link is-light">Cancel</button>
@@ -353,7 +353,7 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src='script.js'></script>
+    <script src='/js/pages.js'></script>
 </body>
 
 </html>

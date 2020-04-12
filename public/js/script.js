@@ -40,8 +40,10 @@ $(document).ready(function () {
         row.append('<p>' + newUser.body + '</p>');
 
         $('#user-area').prepend(row);
+        getUsers();
       });
-
+    window.location.href = '/user';
+    // window.location.href = '/user?user_id=' + newUser.id;
     // Empty each input box by replacing the value with an empty string
     $('#user-name').val('');
     $('#first-name').val('');
@@ -49,6 +51,22 @@ $(document).ready(function () {
     $('#email').val('');
     $('#password').val('');
     $('#password2').val('');
-    window.location.href = 'mainscreen.html';
+
+    // newTr.append("<td><a href='/blog?author_id=" + authorData.id + "'>Go to Posts</a></td>");
   });
+
+  function createUserRow(userData) {
+    console.log(userData);
+  }
+
+  // Function for retrieving authors and getting them ready to be rendered to the page
+  function getUsers() {
+    $.get('/api/users', function (data) {
+      var rowsToAdd = [];
+      for (var i = 0; i < data.length; i++) {
+        rowsToAdd.push(createUserRow(data[i]));
+      }
+      // renderUserList(rowsToAdd);
+    });
+  }
 });

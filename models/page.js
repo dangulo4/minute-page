@@ -52,11 +52,11 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true,
       len: [15],
     },
-    photo: {
+    logo: {
       type: DataTypes.BLOB,
       allowNull: true,
     },
-    video: {
+    file: {
       type: DataTypes.BLOB,
       allowNull: true,
     },
