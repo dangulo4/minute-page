@@ -31,11 +31,6 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, '../public/existingpages.html'));
   });
 
-  // processing route loads existingpages.html
-  app.get('/leads', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public/leads.html'));
-  });
-
   // // output route loads output.html
   // app.get("/output", function(req, res) {
   //   res.sendFile(path.join(__dirname, "../public/output.html"));
