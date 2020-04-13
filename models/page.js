@@ -2,30 +2,30 @@ module.exports = function (sequelize, DataTypes) {
   var Page = sequelize.define('Page', {
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
-        len: [30],
+        len: [3],
       },
     },
     header: {
       type: DataTypes.STRING,
-      allowNull: false,
-      len: [30],
+      allowNull: true,
+      len: [3],
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: false,
-      len: [100],
+      allowNull: true,
+      len: [1],
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
-      len: [30],
+      allowNull: true,
+      len: [3],
     },
     quote: {
       type: DataTypes.STRING,
-      allowNull: false,
-      len: [10],
+      allowNull: true,
+      len: [1],
     },
     pointOne: {
       type: DataTypes.STRING,
@@ -67,7 +67,7 @@ module.exports = function (sequelize, DataTypes) {
     // A Page can't be created without an User due to the foreign key constraint
     Page.belongsTo(models.User, {
       foreignKey: {
-        allowNull: false,
+        allowNull: true,
       },
     });
   };
