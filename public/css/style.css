@@ -9,6 +9,11 @@ body {
   transition: transform 0.3s ease;
 }
 
+.hero.is-large .hero-body {
+  padding-bottom: 18rem;
+  padding-top: 10rem;
+}
+
 header {
   text-align: center;
   padding-top: 2%;
@@ -116,6 +121,10 @@ header {
   padding-left: 9%;
 }
 
+.error-message {
+  color: salmon;
+}
+
 #script1 {
   text-align: left;
   margin-left: 2%;
@@ -133,6 +142,59 @@ footer {
 
 .buttonsmainpage {
   margin-left: 31%;
+}
+
+.getleadlogin {
+  margin-left: 47%;
+}
+
+.bulletandform {
+  margin-left: -65%;
+}
+
+.background-image {
+  height: 0;
+  padding: 0; /* remove any pre-existing padding, just in case */
+  padding-bottom: 75%; /* for a 4:3 aspect ratio */
+  background-image: url(foo.png);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.background {
+  background-repeat: no-repeat;
+  /* background-size: contain; */
+}
+
+.backgroundchoice {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.nameofcompany {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.headerofcompany {
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.formtitle {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.bulletone {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.bullettwo {
+  font-size: 25px;
+  font-weight: bold;
 }
 
 @keyframes modalopen {
