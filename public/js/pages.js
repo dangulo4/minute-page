@@ -14,14 +14,13 @@ $(document).ready(function () {
       desc: $('#desc').val().trim(),
       one: $('#first-point').val().trim(),
       two: $('#second-point').val().trim(),
-
-      three: $('#third-point').val().trim(),
-      four: $('#fourth-point').val().trim(),
+      // three: $('#third-point').val().trim(),
+      // four: $('#fourth-point').val().trim(),
       title: $('#title').val().trim(),
       formDesc: $('#form-desc').val().trim(),
-      quote: $('#quote').val().trim(),
-      logo: $('#image').val().trim(),
-      file: $('#file').val().trim(),
+      // quote: $('#quote').val().trim(),
+      // logo: $('#image').val().trim(),
+      // file: $('#file').val().trim(),
       // userId: $('/api/user/${req.params}'),
 
     };
