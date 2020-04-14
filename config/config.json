@@ -1,17 +1,17 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
-    "database": "minutepage",
-    "host": "127.0.0.1",
+    "username": "yxbwrlbele0z7q6p",
+    "password": "yi4ge337k95cn3dz",
+    "database": "dmtsj946qnmat76i",
+    "host": "jsftj8ez0cevjz8v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "port": 3306,
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "root",
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "username": "yxbwrlbele0z7q6p",
+    "password": "yi4ge337k95cn3dz",
+    "database": "dmtsj946qnmat76i",
+    "host": "jsftj8ez0cevjz8v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "port": 3306,
     "dialect": "mysql"
   },
@@ -23,4 +23,3 @@
     "port": 3306,
     "dialect": "mysql"
   }
-}
