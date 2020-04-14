@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Finnhub</title>
+</head>
+
+<body>
+    <!-- Retrieved data will be dumped here -->
+    <div class='search'>
+     <h2><span>Search By Domain</span></h2> <input id='symbolSearch' type="text" placeholder="Enter Company Name"><button id='srchBtn'>Search</button>
+     
+    </div>
+    
+    <div class='data'></div>
+    <div class='domain'></div>
+    <div class='country'></div>
+    <div class='state'></div>
+    <div class='emails'></div>
+    <div></div>
+   
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    
+    <script type="text/javascript">
+      $('#srchBtn').on('click', function () {
+            // Finnhub API Key
+            var APIKey = 'a93bc93acd1ba3cc69a1814f7ee909396256fca3';
+            var domainName = '';
+            var domainName = $('#symbolSearch').val();
+            console.log(domainName);
+            // URL we need to query the crunchbase
+            var queryURL = 'https://api.hunter.io/v2/domain-search?domain=' + domainName +'&api_key=' + APIKey;
+
+            
+              // Here we run our AJAX call to the OpenWeatherMap API
+              $.ajax({
+                  url: queryURL,
+                  method: "GET"
+                })
+              // Store all of the retrieved data inside of an object called "response"
+              .then(function (response) {
+                // Log the queryURL
+                console.log(queryURL);
+                // Log the resulting object
+                console.log(response);
+                // Transfer content to HTML
+
+               
+                $('.data').html("<h1>Contact Info: " + response.data.organization + "</h1>");
+                $('.domain').text("Domain: " + response.data.domain);
+                $('.country').text("Country: " + response.data.country);
+                $('.state').text("State: " + response.data.state);
+                $('<br/>');
+                
+                  for (var i = 0; i < response.data.emails.length; i++){
+                    var p3 = $('<p>').text("Emails: " + response.data.emails[i].value + ' NAME:' + response.data.emails[i].first_name + ' ' + response.data.emails[i].last_name);
+                      $('.emails').append(p3);
+                  }
+                  
+                
+               
+                        //Log the data in the console
+                console.log("Domain: " + response.data);
+                console.log("Email Count: " + response.data.emails.length);
+
+              });
+              
+
+              
+            });
+    </script>
+  </body>
+  </html>

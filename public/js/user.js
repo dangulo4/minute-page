@@ -1,115 +1,166 @@
-// $(document).ready(function () {
-//   // Getting references to the name input and user container, as well as the table body
-//   var unameInput = $('#user-name');
-//   var fnameInput = $('#first-name');
-//   var lnameInput = $('#last-name');
-//   var emailInput = $('#email');
-//   var pwInput = $('#password');
-//   var userList = $('tbody');
-//   var userContainer = $('.modals');
-//   // Adding event listeners to the form to create a new object, and the button to delete
-//   // an User
-//   $(document).on('submit', '#user-form', handleUserFormSubmit);
-//   $(document).on('click', '.delete-user', handleDeleteButtonPress);
+/$(document).ready(function () {
 
-//   // Getting the initial list of Users
-//   getUsers();
-
-//   // A function to handle what happens when the form is submitted to create a new User
-//   function handleUserFormSubmit(event) {
-//     event.preventDefault();
-//     // Don't do anything if the name fields hasn't been filled out
-//     if (!fnameInput.val().trim().trim()) {
-//       return;
-//     }
-//     // Calling the upsertUser function and passing in the value of the name input
-//     upsertUser({
-//       username: unameInput.val().trim(),
-//       firstname: fnameInput.val().trim(),
-//       lastname: lnameInput.val().trim(),
-//       email: emailInput.val().trim(),
-//       password: pwInput.val().trim(),
-//     });
-//   }
-
-//   // A function for creating an user. Calls getUsers upon completion
-//   function upsertUser(userData) {
-//     $.post('/api/users', userData).then(getUsers);
-//   }
-
-//   // Function for creating a new list row for users
-//   function createUserRow(userData) {
-//     var newTr = $('<tr>');
-//     newTr.data('user', userData);
-//     newTr.append(
-//       '<td>' +
-//         userData.username +
-//         userData.firstname +
-//         userData.lastname +
-//         userData.email +
-//         userData.password +
-//         '</td>'
-//     );
-//     if (userData.Pages) {
-//       newTr.append('<td> ' + userData.Pages.length + '</td>');
-//     } else {
-//       newTr.append('<td>0</td>');
-//     }
-//     newTr.append(
-//       "<td><a href='/page?user_id=" + userData.id + "'>Go to Posts</a></td>"
-//     );
-//     newTr.append(
-//       "<td><a href='/cms?user_id=" + userData.id + "'>Create a Post</a></td>"
-//     );
-//     newTr.append(
-//       "<td><a style='cursor:pointer;color:red' class='delete-user'>Delete User</a></td>"
-//     );
-//     return newTr;
-//   }
-
-//   // Function for retrieving users and getting them ready to be rendered to the page
-//   function getUsers() {
-//     $.get('/api/users', function (data) {
-//       var rowsToAdd = [];
-//       for (var i = 0; i < data.length; i++) {
-//         rowsToAdd.push(createUserRow(data[i]));
-//       }
-//       renderUserList(rowsToAdd);
-//       unameInput.val('');
-//       fnameInput.val('');
-//       lnameInput.val('');
-//       emailInput.val('');
-//       password.val('');
-//     });
-//   }
-
-//   // A function for rendering the list of users to the page
-//   function renderUserList(rows) {
-//     userList.children().not(':last').remove();
-//     userContainer.children('.alert').remove();
-//     if (rows.length) {
-//       console.log(rows);
-//       userList.prepend(rows);
-//     } else {
-//       renderEmpty();
-//     }
-//   }
-
-//   // Function for handling what to render when there are no users
-//   function renderEmpty() {
-//     var alertDiv = $('<div>');
-//     alertDiv.addClass('alert alert-danger');
-//     alertDiv.text('You must create an User before you can create a Post.');
-//     userContainer.append(alertDiv);
-//   }
-
-//   // Function for handling what happens when the delete button is pressed
-//   function handleDeleteButtonPress() {
-//     var listItemData = $(this).parent('td').parent('tr').data('user');
-//     var id = listItemData.id;
-//     $.ajax({
-//       method: 'DELETE',
-//       url: '/api/users/' + id,
-//     }).then(getUsers);
-//   }
-// });
+    $('#srchBtn').on('click', function () {
+      // Crunchbase API Key
+      var APIKey = 'a4c82e5afba2b0d13219a4ffb25081a3';
+      var name = '';
+      var name = $('#companySearch').val();
+      var symbol = $('#symbol').val();
+  
+      // URL we need to query the crunchbase
+      var queryURL = "https://api.crunchbase.com/v3.1/odm-organizations?" +
+        "name=" + name + "&user_key=" + APIKey;
+  
+      // Here we run our AJAX call to the OpenWeatherMap API
+      $.ajax({
+          url: queryURL,
+          method: "GET"
+        })
+        // Store all of the retrieved data inside of an object called "response"
+        .then(function (response) {
+  
+          // Log the resulting object
+          console.log(response);
+          // DECLARE VARIABLES TO PASS TO FINNHUB
+          let symbol = response.data.items[0].properties.stock_symbol;
+          let domainName = response.data.items[0].properties.domain;
+          //Droping the last character
+          let companyDomain = (domainName.split('/').join(''));
+  
+          //CALL FUNCTION - renderCardOne 
+          renderCardOne(response);
+          renderCardTwo(symbol);
+          renderCardThree(symbol);
+          renderCardFour(companyDomain);
+        })
+    })
+  
+    // TRANSFER TO HTML
+    function renderCardOne(response) {
+      $('.name').html("<h2>Company Name: " + response.data.items[0].properties.name + "</h2>");
+      $('.domainName').text("Domain Name: " + response.data.items[0].properties.domain);
+      $(".locations").text("Headquarter Location: " + response.data.items[0].properties.region_name + ', ' + response.data
+        .items[0].properties.city_name);
+      $('.stockexchange').text("Stock Exchange: " + response.data.items[0].properties.stock_exchange);
+      $('.stocksymbol').text("Stock Symbol: " + response.data.items[0].properties.stock_symbol);
+      $('.description').text("Description: " + response.data.items[0].properties.short_description);
+      $('.linkedin').text("LinkedIn URL: " + response.data.items[0].properties.linkedin_url);
+      $('.stocks').text("Stock Symbol: " + response.data.items[0].properties.stock_symbol);
+      $('.intro').text("Hi " + response.data.items[0].properties.name + ",");
+      $('.secondsentence').text("How's it going in " + response.data.items[0].properties.region_name + "?");
+      $('.thirdsentence').text("I see that " + response.data.items[0].properties.short_description);
+      $('.fourthsentence').text("Here at [INSERT YOUR COMPANY NAME] have helped people/companies like you[rs] improve their [INSER VALUE PROP], would you be open to having a 10-minute conversion around our solution?");
+      $('.fifthsentence').text("Sincerely, [INSERT YOUR NAME HERE]");
+      $('.titlesentence').html("<h2>Sales Script - Generic: </h2>");
+      let companyImg = response.data.items[0].properties.profile_image_url;
+      $('#cicon').attr('src', companyImg);
+    }
+  
+    function renderCardTwo(symbol) {
+      // Finnhub API Key
+      var APIKey = 'bot4m1vrh5reabqs9rk0';
+      console.log('Passed: ' + symbol + ' to renderCardTwo');
+  
+      // URL we need to query the crunchbase
+      var queryURL = "https://finnhub.io/api/v1/major-development?symbol=" +
+        symbol + "&token=" + APIKey;
+  
+      // Here we run our AJAX call to the OpenWeatherMap API
+      $.ajax({
+          url: queryURL,
+          method: "GET"
+        })
+  
+        // Store all of the retrieved data inside of an object called "response"
+        .then(function (response) {
+          // TESTING PURPOSE
+          console.log(response);
+  
+          //Check for no data
+          if (response.symbol != 'null') {
+            $('.symbol').html('<h2>Major Developments: ' + response.symbol + '</h2>');
+            $('.datetime').text('Date: ' + response.majorDevelopment[0].datetime);
+            $(".headline").text('Headline: ' + response.majorDevelopment[0].headline);
+            // $('.description').text('Description: ' + response.majorDevelopment[0].description);
+          } else {
+            $('.symbol').html('<h2>Major Developments: ' + 'No Data Available' + '</h2>');
+            $('.datetime').text('Date: No Data Available');
+            $(".headline").text('Headline: No Data Available');
+          }
+        })
+    }
+  
+    function renderCardThree(symbol) {
+      var APIKey = 'bot4m1vrh5reabqs9rk0';
+      console.log('Passed: ' + symbol + ' to renderCardThree');
+      let queryURLMetric = 'https://finnhub.io/api/v1/stock/metric?symbol=' +
+        symbol + '&metric=growth&token=' + APIKey;
+  
+      $.ajax({
+          url: queryURLMetric,
+          method: 'GET',
+          dataType: 'json'
+        })
+        //Store data retreived inside object called response
+        .then(function (data) {
+          //TESTING PURPOSE
+          console.log(data);
+  
+          //Check for no data
+          if (data.symbol != '') {
+            $('.metric').html('<h2>Growth Metrics: ' + data.symbol + '</h2>');
+            $('.growth5Y').text('Book Value Growth Rate (Per Share 5Y) : ' + Math.round(data.metric.bookValueShareGrowth5Y).toFixed(1) + '%');
+            $('.capitalSpend5Y').text('Capital Spending growth Rate 5Y : ' + Math.round(data.metric.capitalSpendingGrowth5Y).toFixed(1) + '%');
+            $('.dividend5Y').text('Dividend Growth Rate 5Y : ' + Math.round(data.metric.dividendGrowthRate5Y).toFixed(1) + '%');
+            $('.netMargin5Y').text('Net Margin Growth 5Y : ' + Math.round(data.metric.netMarginGrowth5Y).toFixed(1) + '%');
+            $('.revenueGrowth5Y').text('Revenue Growth Rate 5Y : ' + Math.round(data.metric.revenueGrowth5Y).toFixed(1) + '%');
+          } else {
+            $('.metric').html('<h2>Growth Metrics: Not Available' + '</h2>');
+            $('.growth5Y').text('Book Value Growth Rate (Per Share 5Y) : Not Available');
+            $('.capitalSpend5Y').text('Capital Spending growth Rate 5Y : Not Available');
+            $('.dividend5Y').text('Dividend Growth Rate 5Y : Not Available');
+            $('.netMargin5Y').text('Net Margin Growth 5Y : Not Available');
+            $('.revenueGrowth5Y').text('Revenue Growth Rate 5Y : Not Available');
+          }
+  
+  
+        })
+    }
+  
+    function renderCardFour(companyDomain) {
+      // Finnhub API Key
+      var APIKey = 'a93bc93acd1ba3cc69a1814f7ee909396256fca3';
+      //Check to see variable passed
+      console.log('Passed: ' + companyDomain + ' to renderCardFour');
+      // URL we need to query the crunchbase
+      var queryURL = 'https://api.hunter.io/v2/domain-search?domain=' + companyDomain + '&api_key=' + APIKey;
+      // Here we run our AJAX call to the OpenWeatherMap API
+      $.ajax({
+          url: queryURL,
+          method: "GET"
+        })
+        // Store all of the retrieved data inside of an object called "response"
+        .then(function (response) {
+          // TESTING PURPOSE
+          console.log(response);
+          // Transfer content to HTML
+           $('.contacts').html("<h1>Contact Info: " + response.data.organization + "</h1>");
+          //  $('.domain').text("Domain: " + responseFour.data.domain);
+          //  $('.country').text("Country: " + responseFour.data.country);
+          //  $('.state').text("State: " + responseFour.data.state);
+          //  $('<br/>');
+         $('.emails').html(' ');
+          for (var i = 0; i < response.data.emails.length; i++) {
+            var p3 = $('<p>').text('Contact Name: ' + response.data.emails[i].first_name + ' ' + response.data.emails[i].last_name);
+            var p4 = $('<p>').text('Contact Title: ' + response.data.emails[i].position);
+            var p5 = $('<p>').text('Contact Email: ' + response.data.emails[i].value);
+            $('.emails').append(p3);
+            $('.emails').append(p4);
+            $('.emails').append(p5);
+          }
+          //Log the data in the console
+          //  console.log("Domain: " + response.data);
+          console.log("Email Count: " + response.data.emails.length);
+        })
+    }
+  });
