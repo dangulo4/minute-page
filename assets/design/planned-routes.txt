@@ -1,0 +1,18 @@
+Planned Routes
+HTML Routes
+Login Page - “/” || “/login”
+Landing Page (logged in; ready to begin) - “/user”
+Questions_## Page - “/question: id”
+Questions_Complete Page(compiling page) - “/processing” 
+Output Page (built page) - “/output”
+//is this one needed, or even wanted?// Delete User - “/delete/user: id”
+//is this one needed, or even wanted?// Delete All Users - “/delete/all”
+
+API Routes
+Display all users - “api/users/all”
+Retrieve User  - “api/users/: id”
+Delete User - “/api/delete/user: id”
+Delete All Users - “api/delete/all”
+
+
+*Feel free to update and leave a note if you see anything that needs changing/adding*
