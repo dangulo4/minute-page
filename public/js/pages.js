@@ -5,36 +5,44 @@ $(document).ready(function () {
   $(getStarted).on('click', function (event) {
     event.preventDefault();
 
+
     // Make a newPage object
+
     var newPage = {
       name: $('#company-name').val().trim(),
       header: $('#header').val().trim(),
       desc: $('#desc').val().trim(),
       one: $('#first-point').val().trim(),
       two: $('#second-point').val().trim(),
-      // three: $('#third-point').val().trim(),
-      // four: $('#fourth-point').val().trim(),
+
+      three: $('#third-point').val().trim(),
+      four: $('#fourth-point').val().trim(),
       title: $('#title').val().trim(),
       formDesc: $('#form-desc').val().trim(),
-      // quote: $('#quote').val().trim(),
-      // logo: $('#image').val().trim(),
-      // file: $('#file').val().trim(),
-      UserId: 1,
+      quote: $('#quote').val().trim(),
+      logo: $('#image').val().trim(),
+      file: $('#file').val().trim(),
+      // userId: $('/api/user/${req.params}'),
+
     };
 
     console.log(newPage);
 
-    //Send an AJAX POST-request with jQuery
+
+    // Send an AJAX POST-request with jQuery
+
     $.post('/api/pages', newPage)
       // On success, run the following code
       .then(function () {
         var row = $('<div>');
+
         row.addClass('page');
 
         row.append('<p>' + newPage.name + ' pages: </p>');
         row.append('<p>' + newPage.body + '</p>');
 
         $('#page-area').prepend(row);
+
         var url = window.location.search;
         var userId;
         if (url.indexOf('?page_id=') !== -1) {
@@ -61,5 +69,6 @@ $(document).ready(function () {
     // $('#file').val('');
     UserId = '';
     // window.location.href = '/gallery';
+
   });
 });
