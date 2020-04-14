@@ -1,0 +1,54 @@
+App Description
+Web App that allows users to build simple websites by asking a series of questions, and then from their answers, compile and construct a webpage template.
+
+
+
+Messages we can send when updating GitHub if we want to use them:
+
+
+Push / Commit Message 
+“Hi Team!
+I am committing my latest changes to document(s) %%”.
+Thank you!”
+Add document names in-between the “%%”.
+
+Submit Issue Message
+“Hi Team!
+“I would like to suggest the following task/issue/updates:
+%%”.
+Thank you!”
+Add issue or updates in-between the “%%”.
+
+
+
+Responsibilities
+Alexia
+GitHub
+Travis CI
+Views
+
+Daniel
+MySQL
+Models
+
+Matt
+Controllers
+API Routes
+Unassigned
+
+
+
+Technologies
+HTML
+CSS
+Framework: 
+Javascript
+NodeJS
+Express
+Sequelize
+Fs
+Path
+Inquirer
+...
+
+
