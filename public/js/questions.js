@@ -5,12 +5,12 @@ $(document).ready(function () {
 function PageInfo() {
   console.log('clicked');
   var nameofcompany = document.getElementById('company-name').value;
-  if (nameofcompany === '') {
-    console.log(nameofcompany);
-    $('#name-required').text('Please Enter The Name of your Company.');
-    $(window).scrollTop(0);
-    return;
-  }
+  //   if (nameofcompany === '') {
+  //     console.log(nameofcompany);
+  //     $('#name-required').text('Please Enter The Name of your Company.');
+  //     $(window).scrollTop(0);
+  //     return;
+  //   }
   var headerofcompany = document.getElementById('header').value;
   var backgroundChoice = $('input[name=background]:checked').val();
   var bulletone = document.getElementById('first-point').value;

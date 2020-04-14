@@ -5,7 +5,7 @@ $(document).ready(function () {
   $(getStarted).on('click', function (event) {
     event.preventDefault();
 
-    // Make a newUser object
+    // Make a newPage object
     var newPage = {
       name: $('#company-name').val().trim(),
       header: $('#header').val().trim(),
@@ -52,13 +52,13 @@ $(document).ready(function () {
     $('#desc').val('');
     $('#first-point').val('');
     $('#second-point').val('');
-    $('#third-point').val('');
-    $('#fourth-point').val('');
+    // $('#third-point').val('');
+    // $('#fourth-point').val('');
     $('#title').val('');
     $('#form-desc').val('');
-    $('#quote').val('');
-    $('#image').val('');
-    $('#file').val('');
+    // $('#quote').val('');
+    // $('#image').val('');
+    // $('#file').val('');
     UserId = '';
     // window.location.href = '/gallery';
   });
