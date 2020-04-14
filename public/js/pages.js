@@ -7,9 +7,13 @@ $(document).ready(function () {
     var newPage = {
       name: $('#company-name').val().trim(),
       header: $('#header').val().trim(),
+
       description: $('#desc').val().trim(),
       pointOne: $('#first-point').val().trim(),
       pointTwo: $('#second-point').val().trim(),
+
+  
+
       // three: $('#third-point').val().trim(),
       // four: $('#fourth-point').val().trim(),
       title: $('#title').val().trim(),
@@ -17,7 +21,12 @@ $(document).ready(function () {
       // quote: $('#quote').val().trim(),
       // logo: $('#image').val().trim(),
       // file: $('#file').val().trim(),
+
       UserId: 1,
+
+      // userId: $('/api/user/${req.params}'),
+
+
     };
     console.log(newPage);
     //Send an AJAX POST-request with jQuery
