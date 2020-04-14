@@ -2,6 +2,7 @@ $(document).ready(function () {
   const close = document.getElementById('close');
   const open = document.getElementById('signUp');
   const modal = document.getElementById('modal');
+  // const userContainer = $('.button');
 
   // Show modal
   open.addEventListener('click', () => modal.classList.add('show-modal'));
@@ -40,8 +41,20 @@ $(document).ready(function () {
         row.append('<p>' + newUser.body + '</p>');
 
         $('#user-area').prepend(row);
-      });
+        var url = window.location.search;
+        var userId;
+        if (url.indexOf('?user_id=') !== -1) {
+          userId = url.split('=')[1];
+          getUsers(userId);
+        }
+        // If there's no authorId we just get all posts as usual
+        else {
+          getUsers();
+        }
 
+      });
+    window.location.href = '/user';
+    // window.location.href = '/user?user_id=' + newUser.id;
     // Empty each input box by replacing the value with an empty string
     $('#user-name').val('');
     $('#first-name').val('');
@@ -49,6 +62,23 @@ $(document).ready(function () {
     $('#email').val('');
     $('#password').val('');
     $('#password2').val('');
-    window.location.href = 'mainscreen.html';
   });
+
+  function getUsers(user) {
+    console.log(user);
+    userId = user || '';
+    if (userId) {
+      userId = '/?user_id=' + userId;
+    }
+    $.get('/api/users' + userId, function (data) {
+      console.log('Users', data);
+      users = data;
+
+      console.log('Users', data);
+
+      window.location.href = '/user?_id=' + data.length;
+      pageUsers = window.location.href = '/user?_id=' + data.length;
+
+    });
+  }
 });
