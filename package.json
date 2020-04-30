@@ -3,24 +3,24 @@
   "version": "1.0.0",
   "description": "Minutepage",
   "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dangulo4/minute-page.git"
+  },
+  "author": "Alexia Chalita, Matthew Bell, Daniel Angulo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dangulo4/minute-page/issues"
+  },
+  "homepage": "https://github.com/dangulo4/minute-page#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "mysql2": "^2.1.0",
     "sequelize": "^5.21.6"
   },
-  "devDependencies": {},
-  "scripts": {
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alexiachalita/project2.git"
-  },
-  "author": "Alexia Chalita, Matthew Bell, Daniel Angulo",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/alexiachalita/project2/issues"
-  },
-  "homepage": "https://github.com/alexiachalita/project2#readme"
+  "devDependencies": {}
 }
