@@ -4,6 +4,7 @@
 // ******************************************************************************
 // *** Dependencies
 // =============================================================
+var compression = require('compression');
 var express = require('express');
 
 // Sets up the Express App
@@ -15,6 +16,7 @@ var PORT = process.env.PORT || 3000;
 var db = require('./models');
 
 // Sets up the Express app to handle data parsing
+app.use(compression({ filter: shouldCompress }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -33,3 +35,13 @@ db.sequelize.sync({ force: true }).then(function () {
     console.log('App listening on PORT ' + PORT);
   });
 });
+
+function shouldCompress(req, res) {
+  if (req.headers['x-no-compression']) {
+    // don't compress responses with this request header
+    return false;
+  }
+
+  // fallback to standard filter function
+  return compression.filter(req, res);
+}

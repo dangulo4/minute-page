@@ -60,6 +60,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.BLOB,
       allowNull: true,
     },
+    formDesc: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   });
 
   Page.associate = function (models) {

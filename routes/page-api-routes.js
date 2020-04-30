@@ -5,9 +5,7 @@ module.exports = function (app) {
   // GET route for getting all of the pages
   app.get('/api/pages', function (req, res) {
     var query = {};
-
     if (req.query.user_id) {
-
       query.UserId = req.query.user_id;
     }
 

@@ -51,10 +51,8 @@ $(document).ready(function () {
         else {
           getUsers();
         }
-
       });
-    window.location.href = '/user';
-    // window.location.href = '/user?user_id=' + newUser.id;
+
     // Empty each input box by replacing the value with an empty string
     $('#user-name').val('');
     $('#first-name').val('');
@@ -78,7 +76,6 @@ $(document).ready(function () {
 
       window.location.href = '/user?_id=' + data.length;
       pageUsers = window.location.href = '/user?_id=' + data.length;
-
     });
   }
 });
