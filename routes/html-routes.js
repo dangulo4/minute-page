@@ -23,7 +23,7 @@ module.exports = function (app) {
 
   // questions route loads questions.html
   app.get('/questions', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public/questions.html'));
+    res.sendFile(path.join(__dirname, './questions.html'));
   });
 
   // processing route loads existingpages.html
