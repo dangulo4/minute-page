@@ -20,7 +20,7 @@ function PageInfo() {
     formtitle,
     formdescription
   );
-  // console.log('Page Created, ' + newPage);
+
   $('#app').html(newPage);
   $(window).scrollTop(0);
 }

@@ -39,13 +39,4 @@ module.exports = function (app) {
       res.json(dbUser);
     });
   });
-
-  // // DELETE ALL USERS
-  // app.delete("/api/Users", function(req, res) {
-  //     db.User.destroy({
-  //       include: [db.User]
-  //     }).then(function(dbUser) {
-  //       res.json(dbUser);
-  //     });
-  // });
 };

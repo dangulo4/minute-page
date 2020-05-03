@@ -30,31 +30,6 @@ $(document).ready(function () {
         row.append('<p>' + newPage.body + '</p>');
 
         $('#page-area').prepend(row);
-        // var url = window.location.search;
-        // var userId;
-        // if (url.indexOf('?page_id=') !== -1) {
-        //   userId = url.split('=')[1];
-        //   getUsers(userId);
-        // }
-        // // If there's no UserId we just get all posts as usual
-        // else {
-        //   getPages();
-        // }
       });
-
-    // $('#company-name').val('');
-    // $('#header').val('');
-    // $('#desc').val('');
-    // $('#first-point').val('');
-    // $('#second-point').val('');
-    // // $('#third-point').val('');
-    // // $('#fourth-point').val('');
-    // $('#title').val('');
-    // $('#form-desc').val('');
-    // // $('#quote').val('');
-    // // $('#image').val('');
-    // // $('#file').val('');
-    // UserId = '';
-    // window.location.href = '/gallery';
   });
 });
