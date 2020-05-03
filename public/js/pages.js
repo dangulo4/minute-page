@@ -30,8 +30,8 @@ $(document).ready(function () {
         row.append('<p>' + newPage.body + '</p>');
 
         $('#page-area').prepend(row);
-        var url = window.location.search;
-        var userId;
+        // var url = window.location.search;
+        // var userId;
         // if (url.indexOf('?page_id=') !== -1) {
         //   userId = url.split('=')[1];
         //   getUsers(userId);
