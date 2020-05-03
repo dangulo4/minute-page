@@ -30,7 +30,7 @@ module.exports = function (app) {
   });
 
   // POST route for saving a new page
-  app.post('/api/pages', function (req, res) {
+  app.post('/api/pages/', function (req, res) {
     db.Page.create(req.body).then(function (dbPage) {
       res.json(dbPage);
     });
@@ -48,7 +48,7 @@ module.exports = function (app) {
   });
 
   // PUT route for updating pages
-  app.put('/api/pages', function (req, res) {
+  app.put('/api/pages/', function (req, res) {
     db.Page.update(req.body, {
       where: {
         id: req.body.id,
