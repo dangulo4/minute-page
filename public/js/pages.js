@@ -12,13 +12,8 @@ $(document).ready(function () {
       description: $('#desc').val().trim(),
       pointOne: $('#first-point').val().trim(),
       pointTwo: $('#second-point').val().trim(),
-      // three: $('#third-point').val().trim(),
-      // four: $('#fourth-point').val().trim(),
       title: $('#title').val().trim(),
       formDesc: $('#form-desc').val().trim(),
-      // quote: $('#quote').val().trim(),
-      // logo: $('#image').val().trim(),
-      // file: $('#file').val().trim(),
       UserId: 1,
     };
 

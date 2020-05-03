@@ -143,10 +143,6 @@ function landingPageData(
                                                   </div>   
                                                   </p>           
       </section>
-
-
-      
-
   </div>
 </div>
 `;
